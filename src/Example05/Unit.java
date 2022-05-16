@@ -39,11 +39,13 @@ public class Unit {
     int healthPoint;    //체력
 
     Unit(String name, int attackPower, int defencePower, int healthPoint) {
+        //유닛 생성시에는 이름, 공격력, 방어력, 체력 입력을 필요로 한다.
         this.name = name;
         this.attackPower = attackPower;
         this.defencePower = defencePower;
         this.healthPoint = healthPoint;
 
+        //유닛 객체의 정보를 생성시 출력해준다.
         System.out.println("[안내] 생성된 유닛 정보는 다음과 같습니다.");
         System.out.printf("[안내] %s 유닛이 게임에 참여하였습니다.\n", this.name);
         System.out.println("[공격력] : " + this.attackPower);
@@ -54,10 +56,13 @@ public class Unit {
     public void attack(Unit enemy) {
         System.out.println("----------------------------------------");
         System.out.printf("[안내] [%s]유닛이 [공격] 하였습니다.\n", this.name);
+        //상대 유닛 객체의 체력에서 내 공격력을 뺀다. 남은 체력을 출력한다.
+        //체력이 0보다 작을수 없으므로 계산해서 체력을 set 해준다.
         enemy.setHealthPoint(enemy.getHealthPoint() < this.attackPower ? 0 : enemy.getHealthPoint() - this.attackPower);
         System.out.printf("[안내] 상대 유닛의 남은 [체력]은 %d 입니다.\n", enemy.getHealthPoint());
         System.out.println("----------------------------------------");
 
+        //체력이 0인경우 유닛이 제거된다.
         if (enemy.getHealthPoint() == 0) {
             System.out.println("[안내] 더 이상 공격할 수 없습니다.\n" +
                     "\n" +
