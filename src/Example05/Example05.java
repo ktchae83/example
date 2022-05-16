@@ -3,9 +3,11 @@ package Example05;
 import java.util.Scanner;
 
 public class Example05 {
-    private static Unit myUnit, enemyUnit;
+//    private static Unit myUnit, enemyUnit;
 
     public static void main(String [] args) {
+        Unit myUnit, enemyUnit;
+
         System.out.println("[안내] TRPG 스타크래프트 시작합니다.");
         System.out.println("[안내] 자신의 유닛 정보를 입력해 주세요.");
 
