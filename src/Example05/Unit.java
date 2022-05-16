@@ -53,7 +53,7 @@ public class Unit {
         System.out.println("[체력] : " + this.healthPoint);
     }
 
-    public void attack(Unit enemy) {
+    public void attack(Unit enemy) {    //내 공격력으로 상대의 체력을 깍아버린다.
         System.out.println("----------------------------------------");
         System.out.printf("[안내] [%s]유닛이 [공격] 하였습니다.\n", this.name);
         //상대 유닛 객체의 체력에서 내 공격력을 뺀다. 남은 체력을 출력한다.
