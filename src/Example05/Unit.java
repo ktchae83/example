@@ -5,32 +5,21 @@ public class Unit {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAttackPower() {
         return attackPower;
-    }
-
-    public void setAttackPower(int attackPower) {
-        this.attackPower = attackPower;
     }
 
     public int getDefencePower() {
         return defencePower;
     }
 
-    public void setDefencePower(int defencePower) {
-        this.defencePower = defencePower;
-    }
-
     public int getHealthPoint() {
         return healthPoint;
     }
 
-    public void setHealthPoint(int healthPoint) {
-        this.healthPoint = healthPoint;
+    public void beAttacked(Unit a) {
+        if (this.healthPoint < a.getAttackPower()) this.healthPoint = 0;
+        else this.healthPoint = this.healthPoint - a.getAttackPower();
     }
 
     String name;    //유닛이름
@@ -58,7 +47,8 @@ public class Unit {
         System.out.printf("[안내] [%s]유닛이 [공격] 하였습니다.\n", this.name);
         //상대 유닛 객체의 체력에서 내 공격력을 뺀다. 남은 체력을 출력한다.
         //체력이 0보다 작을수 없으므로 계산해서 체력을 set 해준다.
-        enemy.setHealthPoint(enemy.getHealthPoint() < this.attackPower ? 0 : enemy.getHealthPoint() - this.attackPower);
+//        enemy.setHealthPoint(enemy.getHealthPoint() < this.attackPower ? 0 : enemy.getHealthPoint() - this.attackPower);
+        enemy.beAttacked(this);
         System.out.printf("[안내] 상대 유닛의 남은 [체력]은 %d 입니다.\n", enemy.getHealthPoint());
         System.out.println("----------------------------------------");
 
