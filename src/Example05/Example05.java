@@ -42,13 +42,16 @@ public class Example05 {
         System.out.print("[시스템] 유닛 [체력] 을 입력해 주세요 (Ex 100) : ");
         healthPoint = scan.nextInt();
 
+        scan.close(); //scanner close
+
         //입력받은 data로 상대 유닛 생성
         enemyUnit = new Unit(inputName, attackPower, defencePower, healthPoint);
         System.out.println("========================================");
 
-        myUnit.attack(enemyUnit);   //내유닛으로 상대유닛 공격 1st
-        myUnit.attack(enemyUnit);   //내유닛으로 상대유닛 공격 2nd
-
-        scan.close();
+//        myUnit.attack(enemyUnit);   //내유닛으로 상대유닛 공격 1st
+//        myUnit.attack(enemyUnit);   //내유닛으로 상대유닛 공격 2nd
+        while(enemyUnit.getHealthPoint() > 0) { //한놈만 제거될때까지 공격
+            myUnit.attack(enemyUnit);
+        }
     }
 }
