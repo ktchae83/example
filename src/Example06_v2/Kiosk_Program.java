@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Kiosk_Program {
-    String name = "키오스크";
+    private String name = "키오스크";
     private ArrayList<Menu> menus = new ArrayList<>();
-    Scanner scan;
+    private Scanner scan;
 
     Kiosk_Program(String name) {
         this.name = name;
@@ -30,12 +30,12 @@ public class Kiosk_Program {
         output_print(sum);
     }
 
-    public void input_print() {
+    private void input_print() {
         System.out.println("[안내]안녕하세요. 김밥천국에 오신 것을 환영합니다.");
         System.out.println("------------------------------");
     }
 
-    public int select_menu() {
+    private int select_menu() {
         int menuNum = 0;
         System.out.println("------------------------------");
         while(true) {
@@ -52,7 +52,7 @@ public class Kiosk_Program {
         }
         return menuNum;
     }
-    public int count() {
+    private int count() {
         int count = 0;
         while(true) {
             System.out.println("------------------------------");
@@ -67,12 +67,12 @@ public class Kiosk_Program {
         return count;
     }
 
-    public int cost(int number, int count) {
+    private int cost(int number, int count) {
         int sum = menus.get(number-1).getPrice() * count;
         return sum;
     }
 
-    public void output_print(int sum) {
+    private void output_print(int sum) {
         System.out.printf("[안내]주문하신 메뉴의 총 금액은 %,d원 입니다.\n" +
                 "[안내]이용해 주셔서 감사합니다.", sum);
     }
