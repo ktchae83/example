@@ -18,8 +18,9 @@ public class Unit {
     }
 
     public void beAttacked(Unit a) { //공격받을때 healthPoint와 상대 공격력을 고려하여 차감한다.
-        if (this.healthPoint < a.getAttackPower()) this.healthPoint = 0;
-        else this.healthPoint = this.healthPoint - a.getAttackPower();
+        int attack = a.getAttackPower() - this.defencePower; //내 방어력만큼 공격력을 차감한다.
+        if (this.healthPoint < attack) this.healthPoint = 0;
+        else this.healthPoint = this.healthPoint - attack;
     }
 
     String name;    //유닛이름
