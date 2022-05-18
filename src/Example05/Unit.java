@@ -17,7 +17,7 @@ public class Unit {
         return healthPoint;
     }
 
-    public void beAttacked(Unit a) {
+    public void beAttacked(Unit a) { //공격받을때 healthPoint와 상대 공격력을 고려하여 차감한다.
         if (this.healthPoint < a.getAttackPower()) this.healthPoint = 0;
         else this.healthPoint = this.healthPoint - a.getAttackPower();
     }
@@ -45,10 +45,7 @@ public class Unit {
     public void attack(Unit enemy) {    //내 공격력으로 상대의 체력을 깍아버린다.
         System.out.println("----------------------------------------");
         System.out.printf("[안내] [%s]유닛이 [공격] 하였습니다.\n", this.name);
-        //상대 유닛 객체의 체력에서 내 공격력을 뺀다. 남은 체력을 출력한다.
-        //체력이 0보다 작을수 없으므로 계산해서 체력을 set 해준다.
-//        enemy.setHealthPoint(enemy.getHealthPoint() < this.attackPower ? 0 : enemy.getHealthPoint() - this.attackPower);
-        enemy.beAttacked(this);
+        enemy.beAttacked(this); //enemy가 나(this)의 공격을 받는다.
         System.out.printf("[안내] 상대 유닛의 남은 [체력]은 %d 입니다.\n", enemy.getHealthPoint());
         System.out.println("----------------------------------------");
 
